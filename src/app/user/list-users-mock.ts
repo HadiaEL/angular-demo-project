@@ -1,0 +1,17 @@
+export const MOCK_USERS = [
+  { id: '1', name: 'Alice DUPONT', avatar: 'user-1.png' },
+  { id: '2', name: 'Bob MARTIN', avatar: 'user-2.png' },
+  { id: '3', name: 'Charlie SMITH', avatar: 'user-3.png' },
+  { id: '4', name: 'David JOHNSON', avatar: 'user-4.png' },
+  { id: '5', name: 'Eve WILLIAMS', avatar: 'user-5.png' },
+  { id: '6', name: 'Frank BROWN', avatar: 'user-6.png' },
+  { id: '7', name: 'Grace DAVIS', avatar: 'user-7.png' },
+  { id: '8', name: 'Hank MILLER', avatar: 'user-8.png' },
+  { id: '9', name: 'Ivy WILSON', avatar: 'user-9.png' },
+  { id: '10', name: 'Jack MOORE', avatar: 'user-10.png' },
+  { id: '11', name: 'Karen TAYLOR', avatar: 'user-11.png' },
+  { id: '12', name: 'Leo ANDERSON', avatar: 'user-12.png' }, 
+  { id: '13', name: 'Mia THOMAS', avatar: 'user-13.png' },
+  { id: '14', name: 'Nina JACKSON', avatar: 'user-14.png' },
+  { id: '15', name: 'Oscar WHITE', avatar: 'user-15.png' },
+]
