@@ -1,7 +1,6 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {MOCK_USERS} from './list-users-mock';
 
-const randomIndex = Math.floor(Math.random() * MOCK_USERS.length);
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -11,12 +10,14 @@ const randomIndex = Math.floor(Math.random() * MOCK_USERS.length);
 })
 
 export class UserComponent {
-  selectedUser = signal(MOCK_USERS[randomIndex]);
-  imagePath = computed(() => `assets/users/${this.selectedUser().avatar}`);  
+  @Input() avatar!: string;
+  @Input() name!: string;
+
+  get imagePath(): string {
+    return `assets/users/${this.avatar}`;
+  }
 
   onSelectUser() {
-    const randomIndex = Math.floor(Math.random() * MOCK_USERS.length);
-    this.selectedUser.set(MOCK_USERS[randomIndex]);
   } 
 }
 

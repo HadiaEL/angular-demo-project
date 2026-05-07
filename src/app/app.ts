@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { HeaderComponent } from "./header/header";
 import { UserComponent } from "./user/user";
+import {MOCK_USERS} from "./user/list-users-mock";
 
 @Component({
   selector: 'app-root',
@@ -11,4 +12,5 @@ import { UserComponent } from "./user/user";
 })
 export class App {
   protected readonly title = signal('angular-demo-project');
+  users = MOCK_USERS;
 }
