@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import {MOCK_USERS} from './list-users-mock';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,14 +9,18 @@ import {MOCK_USERS} from './list-users-mock';
 })
 
 export class UserComponent {
+  @Input() id!: string;
   @Input() avatar!: string;
   @Input() name!: string;
+
+  @Output() selected = new EventEmitter<string>();
 
   get imagePath(): string {
     return `assets/users/${this.avatar}`;
   }
 
   onSelectUser() {
+    this.selected.emit(this.id);
   } 
 }
 
