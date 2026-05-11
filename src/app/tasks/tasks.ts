@@ -9,6 +9,7 @@ import { MOCK_TASKS } from './list-tasks-mock';
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.css'],
 })
+
 export class TasksComponent {
   @Input({required: true}) userId!: string;
   @Input({required : true}) name!: string;
@@ -16,6 +17,10 @@ export class TasksComponent {
 
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId);
+  }
+
+  onCompleteTask(taskId: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 
 }
