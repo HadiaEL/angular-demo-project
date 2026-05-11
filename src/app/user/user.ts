@@ -8,10 +8,9 @@ import { type User } from './user.model';
   templateUrl: './user.html',
   styleUrls: ['./user.css'],
 })
-
 export class UserComponent {
-  @Input({required: true}) user !: User;
-  @Input ({required: true}) isSelected!: boolean;
+  @Input({ required: true }) user!: User;
+  @Input({ required: true }) isSelected!: boolean;
 
   @Output() selected = new EventEmitter<string>();
 
@@ -21,6 +20,5 @@ export class UserComponent {
 
   onSelectUser() {
     this.selected.emit(this.user.id);
-  } 
+  }
 }
-
