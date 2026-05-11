@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 import { MOCK_TASKS } from './list-tasks-mock';
 import { NewTaskData } from './task/task.model';
 
-class TasksService {
+@Injectable({ providedIn: 'root' })
+export class TasksService {
   private tasks = MOCK_TASKS;
 
   getUserTasks(userId: string) {
@@ -22,5 +24,3 @@ class TasksService {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
   }
 }
-
-export const tasksService = new TasksService();
