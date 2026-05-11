@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task';
 import { MOCK_TASKS } from './list-tasks-mock';
+import { NewTaskComponent } from './new-task/new-task';
+import { NewTaskData } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent , NewTaskComponent],
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.css'],
 })
@@ -13,6 +15,8 @@ import { MOCK_TASKS } from './list-tasks-mock';
 export class TasksComponent {
   @Input({required: true}) userId!: string;
   @Input({required : true}) name!: string;
+  
+  isAddingTask = false;
   tasks = MOCK_TASKS;
 
   get selectedUserTasks() {
@@ -21,6 +25,25 @@ export class TasksComponent {
 
   onCompleteTask(taskId: string) {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
+  }
+
+  onStartAddTask() {
+    this.isAddingTask = true;
+  }
+
+  onCancelAddTask() {
+    this.isAddingTask = false;
+  }
+
+  onSubmitAddTask(taskData : NewTaskData) {
+    this.tasks.push({
+      id: Math.random().toString(),
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+      userId: this.userId,
+    }); 
+    this.isAddingTask = false;
   }
 
 }
